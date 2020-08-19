@@ -2,7 +2,6 @@ package org.liujk.spring.boot.sample.controller;
 
 
 import org.liujk.spring.boot.sample.config.PersonConfig;
-import org.liujk.spring.boot.sample.config.PersonCustomConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -26,8 +25,6 @@ public class HelloController {
     @Autowired
     private PersonConfig personConfig;
 
-    @Autowired
-    private PersonCustomConfig personCustomConfig;
 
     @RequestMapping("/hello-world")
     public String index() {
@@ -40,12 +37,7 @@ public class HelloController {
                 + " tom.age:" + personConfig.getAge()
                 + " tom.phone:" + personConfig.getPhone();
 
-        String res3 = "custom.name:" + personCustomConfig.getName()
-                + " custom.age:" + personCustomConfig.getAge()
-                + " custom.phone:" + personCustomConfig.getPhone();
-
-
-        return res1 + res2 + res3 + " Greetings from hello world!";
+        return res1 + res2 + " Greetings from hello world!";
     }
 
 }
